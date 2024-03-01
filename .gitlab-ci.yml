@@ -1,0 +1,32 @@
+image: registry.docker.planejamento.gov.br/spu/integracao-continua/docker:latest
+services:
+  - registry.docker.planejamento.gov.br/spu/integracao-continua/docker:dind
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  tags:
+    - spu
+  script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" "$CI_REGISTRY" --password-stdin
+    - docker build --pull --output type=docker -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG" -f docker/Dockerfile .
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG"
+  only:
+    - tags
+
+
+deploy:
+  stage: deploy
+  tags:
+    - spu
+  image: registry.docker.planejamento.gov.br/spu/integracao-continua/rancher-gitlab-deploy
+  script:
+    - upgrade --stack siga-v2 --service demandas --new-image "$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG"
+  only:
+    - tags
+  retry:
+    max: 1
+    when: stuck_or_timeout_failure
