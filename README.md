@@ -1,8 +1,3 @@
-# Teste
-
-Este projeto é destinado a pôr em exercício aprendizados e conhecimento técnico simulando um cadastro de pessoas.
-
-## Breifing
 ### Objetivo
 O principal objetivo deste projeto é criar um API em Laravel, que possibilita:
 
