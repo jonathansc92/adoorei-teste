@@ -11,7 +11,7 @@ class ProductService
 {
     public function get($filter)
     {
-        $products = Product::filter($filter)->paginate();
+        $products = Product::filter($filter)->product()->paginate();
 
         return success_response(
             data: new ResourceCollection($products),

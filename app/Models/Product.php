@@ -18,4 +18,9 @@ class Product extends Model
         'description',
         'price',
     ];
+
+    public function scopeProduct($query)
+    {
+        $query->select('name', 'description', 'price');
+    }
 }
