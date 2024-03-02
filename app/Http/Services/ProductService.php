@@ -2,14 +2,18 @@
 
 namespace App\Http\Services;
 
+use App\Http\Filters\ProductFilter;
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\Response;
 
 class ProductService
 {
-    public function get($filter)
+    public function get(ProductFilter $filter): JsonResponse
     {
         $products = Product::filter($filter)->product()->paginate();
 
@@ -19,7 +23,7 @@ class ProductService
         );
     }
 
-    public static function create($request)
+    public function create(StoreProductRequest $request): JsonResponse
     {
         $product = Product::create($request->validated());
 
@@ -30,7 +34,7 @@ class ProductService
         );
     }
 
-    public function find($product)
+    public function find(Product $product): JsonResponse
     {
         return success_response(
             data: new ProductResource($product),
@@ -38,7 +42,7 @@ class ProductService
         );
     }
 
-    public static function update($request, $product)
+    public function update(UpdateProductRequest $request, Product $product): JsonResponse
     {
         $product->update($request->validated());
 
@@ -48,7 +52,7 @@ class ProductService
         );
     }
 
-    public static function delete($product)
+    public static function delete(Product $product): JsonResponse
     {
         Product::destroy($product->id);
 

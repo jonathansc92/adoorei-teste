@@ -13,16 +13,17 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->enum('role', [
-                    'pending',
-                    'processing', 
-                    'shipped', 
-                    'delivered', 
-                    'cancelled',
-                    'returned',
-                    'refunded',
-                    'completed', 
-                ])->default('pending');
+            $table->enum('status', [
+                'pending',
+                'processing',
+                'shipped',
+                'delivered',
+                'cancelled',
+                'returned',
+                'refunded',
+                'completed',
+            ])->default('pending');
+            $table->float('amount', 10, 2)->default(0.00);
             $table->timestamps();
         });
     }

@@ -38,6 +38,9 @@ Excluir um produto: **[DELETE]** `/api/products/1`.
 
 [https://api.postman.com/collections/3409729-b94465d6-c025-48ce-b583-cdf3fac02277?access_key=PMAT-01HQXDY211TBGCRFZG1TE6RJE4](https://api.postman.com/collections/3409729-b94465d6-c025-48ce-b583-cdf3fac02277?access_key=PMAT-01HQXDY211TBGCRFZG1TE6RJE4)
 
+## O que faria se tivesse mais tempo?
+- Controle de filas para o cadastro de uma nova venda
+
 ## Autor
 - Autor - Jonathan Cruz
 - [https://jonathansc92.github.io/jonathancruzdev/?language=ptBr](https://jonathansc92.github.io/jonathancruzdev/?language=ptBr)

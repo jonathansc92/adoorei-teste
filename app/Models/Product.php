@@ -13,6 +13,8 @@ class Product extends Model
 
     protected $table = 'products';
 
+    protected $hidden = ['pivot'];
+
     protected $fillable = [
         'name',
         'description',

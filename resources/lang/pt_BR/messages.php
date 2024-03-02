@@ -13,4 +13,5 @@ return [
     'unread' => ':model não lido(a)',
     'unreads' => ':model não lidos(as)',
     'not_parent_delete' => ':model possui vinculo em outro cadastro.',
+    'not_saved' => ':model não é possível salvar.',
 ];
