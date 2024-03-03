@@ -16,9 +16,13 @@ class OrderProductService
     {
         $request->validated();
 
-        $order = OrderService::orderIsCancelled($request->order_id);
+        $order = Order::find($request->order_id);
 
-        $where =  [
+        if ($order->status === StatusEnum::Cancelled->value) {
+            return OrderService::cancelledReturn();
+        }
+
+        $where = [
             'product_id' => $request->product_id,
             'order_id' => $request->order_id,
         ];
@@ -29,7 +33,7 @@ class OrderProductService
 
         $product->where($where)->update(['amount' => $totalAmount]);
 
-        $order = OrderService::calcAmount($order, $product->product->price * $request->amount);
+        $order->update(['amount' => $order->amount + $totalAmount]);
 
         return success_response(
             data: new OrderResource($order->load('products')),

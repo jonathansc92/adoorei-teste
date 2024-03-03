@@ -53,23 +53,6 @@ class OrderService
 
     public function cancel(int $id): JsonResponse
     {
-        if ($this->orderIsCancelled($id))
-        {
-            return $this->orderIsCancelled($id);
-        } 
-
-        $order = Order::find($id);
-
-        $order->update(['status' => StatusEnum::Cancelled]);
-
-        return success_response(
-            data: new OrderResource($order->load('products')),
-            message: __('Pedido cancelado com sucesso.', ['model' => __('models/order.singular')]),
-        );
-    }
-
-    public static function orderIsCancelled(int $id)
-    {
         $order = Order::find($id);
 
         if ($order->status === StatusEnum::Cancelled->value) {
@@ -79,13 +62,11 @@ class OrderService
             );
         }
 
-        return $order;
-    }
+        $order->update(['status' => StatusEnum::Cancelled]);
 
-    public static function calcAmount(Order $order, int $amount): Order
-    {
-        $order->update(['amount' => $order->amount + $amount]);
-
-        return $order;
+        return success_response(
+            data: new OrderResource($order->load('products')),
+            message: __('Pedido cancelado com sucesso.', ['model' => __('models/order.singular')]),
+        );
     }
 }
