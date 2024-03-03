@@ -30,7 +30,8 @@ Veja aqui [Wiki page](https://github.com/jonathansc92/adoorei-teste/wiki/Endpoin
 
 ## **COLLECTION**
 
-[https://api.postman.com/collections/3409729-b94465d6-c025-48ce-b583-cdf3fac02277?access_key=PMAT-01HQXDY211TBGCRFZG1TE6RJE4](https://api.postman.com/collections/3409729-b94465d6-c025-48ce-b583-cdf3fac02277?access_key=PMAT-01HQXDY211TBGCRFZG1TE6RJE4)
+- [Postaman Collection](https://api.postman.com/collections/3409729-b94465d6-c025-48ce-b583-cdf3fac02277?access_key=PMAT-01HQXDY211TBGCRFZG1TE6RJE4)
+- [Link Alternativo Collection](https://github.com/jonathansc92/adoorei-teste/blob/main/Adoorei.postman_collection.json)
 
 ## O que faria se tivesse mais tempo?
 - Controle de filas para o cadastro de uma nova venda
