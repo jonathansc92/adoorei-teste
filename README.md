@@ -24,7 +24,7 @@ Para rodar o projeto é necessário ter o **docker** configurador e um terminal 
 
 **Endpoints:**
 
-Veja aqui [Wiki page](https://github.com/adooreicheckout/adoorei-teste-backend)
+Veja aqui [Wiki page](https://github.com/jonathansc92/adoorei-teste/wiki/Endpoints)
 
 
 **COLLECTION**
