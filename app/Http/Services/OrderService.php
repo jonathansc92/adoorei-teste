@@ -58,7 +58,7 @@ class OrderService
         $order = Order::find($id);
 
         if ($order->status === StatusEnum::Cancelled->value) {
-           return $this->cancelledReturn();
+            return $this->cancelledReturn();
         }
 
         $order->update(['status' => StatusEnum::Cancelled]);
@@ -91,7 +91,7 @@ class OrderService
         $product->where($where)->update(['amount' => $totalAmount]);
 
         $totalPrice = $order->amount + $request->amount * $product->product->price;
-        
+
         $order->update(['amount' => $totalPrice]);
 
         return success_response(
