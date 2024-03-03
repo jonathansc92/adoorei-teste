@@ -28,7 +28,7 @@ Para rodar o projeto é necessário ter o **docker** configurador e um terminal 
 
 Veja aqui [Wiki page](https://github.com/jonathansc92/adoorei-teste/wiki/Endpoints)
 
-## **COLLECTION**
+## **Collection**
 
 - [Postman Collection](https://api.postman.com/collections/3409729-b94465d6-c025-48ce-b583-cdf3fac02277?access_key=PMAT-01HQXDY211TBGCRFZG1TE6RJE4)
 - [Link Alternativo Collection](https://github.com/jonathansc92/adoorei-teste/blob/main/Adoorei.postman_collection.json)
