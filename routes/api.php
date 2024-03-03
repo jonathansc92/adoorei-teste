@@ -16,9 +16,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('/{order}', 'OrderController@show');
         Route::post('/', 'OrderController@store');
         Route::post('/cancel/{id}', 'OrderController@cancel');
-    });
-
-    Route::group(['prefix' => 'order-products'], function () {
-        Route::post('/add', 'OrderProductController@addProductToOrder');
+        Route::post('/add/product', 'OrderController@addProduct');
     });
 });

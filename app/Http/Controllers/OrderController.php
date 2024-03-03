@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Filters\OrderFilter;
+use App\Http\Requests\StoreOrderProductRequest;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Services\OrderService;
 use App\Models\Order;
@@ -35,5 +36,10 @@ class OrderController extends Controller
     public function cancel(int $id): JsonResponse
     {
         return $this->service->cancel($id);
+    }
+
+    public function addProduct(StoreOrderProductRequest $request): JsonResponse
+    {
+        return $this->service->addProduct($request);
     }
 }
