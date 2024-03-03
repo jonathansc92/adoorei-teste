@@ -6,7 +6,7 @@ chmod -R 777 storage/
 
 cp /var/www/html/.env.example /var/www/html/.env
 php artisan key:generate
-php artisan migrate --seed
+php artisan migrate
 
 chmod -R 777 /var/www/html/storage/
 
