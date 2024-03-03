@@ -58,10 +58,7 @@ class OrderService
         $order = Order::find($id);
 
         if ($order->status === StatusEnum::Cancelled->value) {
-            return error_response(
-                message: __('Pedido já foi cancelado.', ['model' => __('models/product.singular')]),
-                httpStatus: Response::HTTP_FORBIDDEN,
-            );
+           return $this->cancelledReturn();
         }
 
         $order->update(['status' => StatusEnum::Cancelled]);
@@ -79,7 +76,7 @@ class OrderService
         $order = Order::find($request->order_id);
 
         if ($order->status === StatusEnum::Cancelled->value) {
-            return OrderService::cancelledReturn();
+            return $this->cancelledReturn();
         }
 
         $where = [
@@ -93,12 +90,22 @@ class OrderService
 
         $product->where($where)->update(['amount' => $totalAmount]);
 
-        $order->update(['amount' => $order->amount + $totalAmount]);
+        $totalPrice = $order->amount + $request->amount * $product->product->price;
+        
+        $order->update(['amount' => $totalPrice]);
 
         return success_response(
             data: new OrderResource($order->load('products')),
             message: __('messages.saved', ['model' => __('models/product.singular')]),
             httpStatus: Response::HTTP_CREATED,
+        );
+    }
+
+    private function cancelledReturn()
+    {
+        return error_response(
+            message: __('Pedido já foi cancelado.', ['model' => __('models/product.singular')]),
+            httpStatus: Response::HTTP_FORBIDDEN,
         );
     }
 }
