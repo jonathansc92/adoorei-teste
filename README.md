@@ -30,7 +30,7 @@ Veja aqui [Wiki page](https://github.com/jonathansc92/adoorei-teste/wiki/Endpoin
 
 ## **COLLECTION**
 
-- [Postaman Collection](https://api.postman.com/collections/3409729-b94465d6-c025-48ce-b583-cdf3fac02277?access_key=PMAT-01HQXDY211TBGCRFZG1TE6RJE4)
+- [Postman Collection](https://api.postman.com/collections/3409729-b94465d6-c025-48ce-b583-cdf3fac02277?access_key=PMAT-01HQXDY211TBGCRFZG1TE6RJE4)
 - [Link Alternativo Collection](https://github.com/jonathansc92/adoorei-teste/blob/main/Adoorei.postman_collection.json)
 
 ## O que faria se tivesse mais tempo?
